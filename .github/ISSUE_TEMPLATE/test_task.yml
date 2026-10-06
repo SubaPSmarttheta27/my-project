@@ -1,0 +1,67 @@
+name: "Test Task"
+description: "QA verification plan, test cases, or test automation task for a Feature"
+title: "[TEST]: <Test Scope / Feature>"
+labels: ["qa", "testing"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Test Task / QA Plan Template
+        Use this template to define test scenarios, automation tasks, or QA acceptance criteria for a Feature.
+
+  - type: input
+    id: parent_feature
+    attributes:
+      label: "Parent Feature / Story"
+      description: "Link the parent Feature or Story being tested (e.g., #25)."
+      placeholder: "#<feature-or-story-issue-number>"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: test_type
+    attributes:
+      label: "Test Type"
+      description: "Select the primary category of testing required."
+      options:
+        - "Unit / Component Testing"
+        - "Integration / API Testing"
+        - "End-to-End (E2E) / UI Testing"
+        - "Manual QA / Exploratory Testing"
+        - "Performance / Load Testing"
+        - "Security / Vulnerability Testing"
+    validations:
+      required: true
+
+  - type: textarea
+    id: test_cases
+    attributes:
+      label: "Test Cases & Scenarios"
+      description: "Detail positive, negative, and edge case scenarios."
+      placeholder: |
+        - [ ] Scenario 1: Happy path - verify ...
+        - [ ] Scenario 2: Error handling - verify ...
+        - [ ] Scenario 3: Boundary / edge case - verify ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: test_environment
+    attributes:
+      label: "Environment & Test Data"
+      description: "Specify environment (e.g., Staging), test user roles, mock datasets, or configurations."
+      placeholder: "Environment details, required accounts, or mock fixtures..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: signoff_criteria
+    attributes:
+      label: "QA Sign-off Criteria"
+      description: "Checklist required for QA sign-off before release promotion."
+      placeholder: |
+        - [ ] All automated tests passing in CI
+        - [ ] Staging verification complete
+        - [ ] Zero blocking or critical bugs open
+    validations:
+      required: true

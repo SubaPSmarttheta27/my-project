@@ -1,0 +1,50 @@
+name: CI - Lint and Test
+
+# Trigger CI on pull requests targeting develop or main, and on direct pushes to develop
+on:
+  pull_request:
+    branches:
+      - develop
+      - main
+  push:
+    branches:
+      - develop
+
+jobs:
+  lint-and-test:
+    name: Code Quality and Test Suite
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # -----------------------------------------------------------------------
+      # PLACEHOLDER STEPS:
+      # Application stack has not been selected yet (repository is empty).
+      # Replace the steps below once the application technology is initialized.
+      # -----------------------------------------------------------------------
+
+      - name: Environment Setup (TODO)
+        run: |
+          echo "=========================================================="
+          echo "TODO: Configure language runtime setup action"
+          echo "Examples:"
+          echo "  - actions/setup-node@v4 (for Node.js / TypeScript)"
+          echo "  - actions/setup-python@v5 (for Python)"
+          echo "  - actions/setup-dotnet@v4 (for .NET)"
+          echo "  - actions/setup-java@v4 (for Java)"
+          echo "TODO: Install project dependencies (e.g., npm ci / pip install)"
+          echo "=========================================================="
+
+      - name: Lint & Static Analysis (TODO)
+        run: |
+          echo "=========================================================="
+          echo "TODO: Add linting commands (e.g., npm run lint / flake8 / dotnet format)"
+          echo "=========================================================="
+
+      - name: Automated Tests (TODO)
+        run: |
+          echo "=========================================================="
+          echo "TODO: Add test execution commands (e.g., npm test / pytest / dotnet test)"
+          echo "=========================================================="

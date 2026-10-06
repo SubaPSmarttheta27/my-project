@@ -1,0 +1,33 @@
+﻿name: Deploy to Production
+
+# Triggered when changes are merged into main
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy-production:
+    name: Production Deployment Placeholder
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # -----------------------------------------------------------------------
+      # PLACEHOLDER STEP:
+      # Safe placeholder only. No application technology is assumed.
+      # Production deployment still needs to be configured.
+      # -----------------------------------------------------------------------
+
+      - name: Production Deployment Notice
+        run: |
+          echo "=========================================================="
+          echo "NOTICE: Production deployment pipeline triggered."
+          echo "Production deployment is NOT yet configured."
+          echo "No application technology or deployment target is assumed."
+          echo "No deployment actions were performed."
+          echo "=========================================================="

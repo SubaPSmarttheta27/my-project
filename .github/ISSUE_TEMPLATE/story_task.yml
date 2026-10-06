@@ -1,0 +1,53 @@
+name: "Story / Task"
+description: "Individual user story or actionable technical task within a Feature"
+title: "[TASK]: <Short description of task>"
+labels: ["task"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Story / Task Template
+        Use this template for an actionable user story or technical task that will be implemented in a feature branch.
+
+  - type: input
+    id: parent_feature
+    attributes:
+      label: "Parent Feature"
+      description: "Link the parent Feature issue (e.g., #25)."
+      placeholder: "#<feature-issue-number>"
+    validations:
+      required: true
+
+  - type: textarea
+    id: user_story
+    attributes:
+      label: "User Story / Task Description"
+      description: "State the story or task clearly. Use the format: 'As a [user], I want [capability], so that [benefit]', or describe the technical objective."
+      placeholder: |
+        As a [user persona],
+        I want to [action/capability],
+        So that [business outcome/value].
+    validations:
+      required: true
+
+  - type: textarea
+    id: technical_details
+    attributes:
+      label: "Technical Implementation Notes"
+      description: "Architectural considerations, dependencies, proposed approach, or API specs."
+      placeholder: "Technical approach, modules to modify, or dependencies..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: "Definition of Done / Acceptance Criteria"
+      description: "Checklist of criteria to verify completion before opening a PR."
+      placeholder: |
+        - [ ] Requirements implemented
+        - [ ] Unit / Integration tests written and passing
+        - [ ] Lint / formatting checks pass
+        - [ ] Tested locally
+    validations:
+      required: true

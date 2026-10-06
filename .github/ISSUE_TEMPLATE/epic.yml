@@ -1,0 +1,50 @@
+name: "Epic"
+description: "High-level initiative grouping multiple Features to deliver strategic value"
+title: "[EPIC]: <Epic Title>"
+labels: ["epic"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Epic Tracking Template
+        Use this template to define an Epic that spans multiple features and tracks high-level business goals.
+
+  - type: textarea
+    id: overview
+    attributes:
+      label: "Overview & Business Value"
+      description: "Describe the high-level objective, problem statement, and expected business impact."
+      placeholder: "Provide a summary of the business need and what this Epic achieves..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: features_breakdown
+    attributes:
+      label: "Features in Scope"
+      description: "List the child features associated with this Epic."
+      placeholder: |
+        - [ ] Feature 1: [Feature Title or Issue #]
+        - [ ] Feature 2: [Feature Title or Issue #]
+    validations:
+      required: true
+
+  - type: textarea
+    id: success_criteria
+    attributes:
+      label: "Success Metrics / Acceptance Criteria"
+      description: "How will we know this Epic has been successfully delivered?"
+      placeholder: |
+        - [ ] Metric 1: ...
+        - [ ] Metric 2: ...
+    validations:
+      required: true
+
+  - type: input
+    id: target_milestone
+    attributes:
+      label: "Target Release / Milestone"
+      description: "Target version or sprint milestone."
+      placeholder: "e.g., v1.0.0 or Q1 Release"
+    validations:
+      required: false

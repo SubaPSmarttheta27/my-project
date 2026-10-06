@@ -1,0 +1,51 @@
+name: "Feature"
+description: "A distinct functionality under an Epic delivering user value"
+title: "[FEATURE]: <Feature Title>"
+labels: ["feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Feature Specification Template
+        Use this template to define a Feature belonging to a parent Epic.
+
+  - type: input
+    id: parent_epic
+    attributes:
+      label: "Parent Epic"
+      description: "Link the parent Epic issue (e.g., #10 or full URL)."
+      placeholder: "#<epic-issue-number>"
+    validations:
+      required: true
+
+  - type: textarea
+    id: feature_description
+    attributes:
+      label: "Feature Description & Context"
+      description: "Explain the purpose of this feature, user personas affected, and functional scope."
+      placeholder: "Describe the functionality and intended behavior..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: stories_tasks
+    attributes:
+      label: "Stories & Technical Tasks Breakdown"
+      description: "List the individual Stories / Tasks required to complete this Feature."
+      placeholder: |
+        - [ ] Story/Task 1: [Task description or issue #]
+        - [ ] Story/Task 2: [Task description or issue #]
+        - [ ] Test Task: [QA / Test task issue #]
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: "Feature Acceptance Criteria"
+      description: "Specific conditions that must be satisfied before this Feature is marked complete."
+      placeholder: |
+        - [ ] Functional criteria 1
+        - [ ] Performance / Security criteria
+    validations:
+      required: true
