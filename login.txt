@@ -4,3 +4,6 @@ User Login Feature
 - Username/email field
 - Password field
 - Login button
+
+
+Login validation implemented
