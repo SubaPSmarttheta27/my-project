@@ -1,6 +1,7 @@
-User Login Feature
+﻿User Login Feature
 
 - Login page created
 - Username/email field
 - Password field
 - Login button
+- User profile dashboard
