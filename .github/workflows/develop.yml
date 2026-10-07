@@ -1,0 +1,53 @@
+﻿# Diagram steps: Merge to develop (integration tests) -> Deploy staging -> QA testing
+name: Develop -> Staging -> QA
+on:
+  push:
+    branches: [develop-2]
+
+jobs:
+  integration-tests:
+    name: integration-tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+      - name: Run integration tests
+        run: pytest -m "integration"
+
+  deploy-staging:
+    name: deploy-staging
+    needs: integration-tests
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy to staging
+        run: |
+          echo "Replace with your staging deploy (ssh, docker push, vercel, aws, etc.)"
+          # ./scripts/deploy.sh staging
+
+  qa-e2e:
+    name: qa-e2e
+    needs: deploy-staging
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+      - name: E2E + regression against staging
+        env:
+          BASE_URL: ${{ vars.STAGING_URL }}
+        run: pytest -m "e2e or regression"

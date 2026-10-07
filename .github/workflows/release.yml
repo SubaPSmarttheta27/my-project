@@ -1,0 +1,29 @@
+﻿# Diagram step: Release to main (tag, deploy prod)
+name: Release
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    environment: production   # add required reviewers in repo Settings -> Environments
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tag release
+        run: |
+          TAG="v$(date +%Y.%m.%d)-${GITHUB_RUN_NUMBER}"
+          git tag "$TAG"
+          git push origin "$TAG"
+          echo "TAG=$TAG" >> "$GITHUB_ENV"
+      - name: Deploy to production
+        run: |
+          echo "Deploying $TAG ..."
+          # ./scripts/deploy.sh production
+      - name: GitHub release notes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$TAG" --generate-notes
